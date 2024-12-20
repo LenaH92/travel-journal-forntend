@@ -1,9 +1,12 @@
 function Sidebar() {
 
     return (
-        <>
-            <h4>This is the sidebar</h4>
-        </>
+        <ul>
+            <li>Home</li>
+            <li>My trips</li>
+            <li>Add new trip!</li>
+            <li>About us</li>
+        </ul>
     )
 
 }
