@@ -5,8 +5,9 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import AboutUsPage from './pages/aboutUsPage'
-import NotFoundPage from './pages/notfoundPage'
+import NotFoundPage from './pages/NotFoundPage'
 import HomePage from './pages/HomePage'
+import InstructionsPage from './pages/instructionsPage'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
 
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/instructions" element={""} /> {/* I thought may be we can put a page to tell what they can do in the page? */}
+        <Route path="/instructions" element={<InstructionsPage />} /> {/* I thought may be we can put a page to tell what they can do in the page? */}
 
         <Route path="/my-trips" element={""} />
 
