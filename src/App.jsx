@@ -10,9 +10,34 @@ import HomePage from './pages/HomePage'
 import InstructionsPage from './pages/instructionsPage'
 import MyTripsPage from './pages/MyTripsPage'
 import AddNewTripPage from './pages/AddNewTripPage'
+import TripDetailsPage from './pages/TripDetailsPage'
+import { useEffect, useState } from "react";
 
 function App() {
 
+  //usestate to load in the trips data
+  const [trips, setTrips] = useState([])
+
+  // Fetch the database with useefect async on mounting
+
+  useEffect(() => {
+    async function fetchTrips() {
+      try {
+        const response = await fetch('http://localhost:4000/trips')
+        console.log(response);
+        if (response.ok) {
+          const tripsData = await response.json();
+          console.log(tripsData);
+          setTrips(tripsData);
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    //call the function otherwise nothing happens
+    fetchTrips();
+  }, [])
 
   return (
     <>
@@ -25,9 +50,9 @@ function App() {
 
         <Route path="/instructions" element={<InstructionsPage />} /> {/* I thought may be we can put a page to tell what they can do in the page? */}
 
-        <Route path="/my-trips" element={<MyTripsPage />} />
+        <Route path="/my-trips" element={<MyTripsPage trips={trips} />} />
 
-        <Route path="/trip/:tripId" element={""} />
+        <Route path="/trip/:tripId" element={<TripDetailsPage trips={trips} />} />
 
         <Route path="/trip/new" element={<AddNewTripPage />} />
 

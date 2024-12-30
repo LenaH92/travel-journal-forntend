@@ -1,37 +1,14 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import TripCard from "../components/TripCardComponent";
 
-const MyTripsPage = () => {
+import TripCard from "../components/TripCard";
 
-    //usestate to load in the trips data
-    const [trips, setTrips] = useState([])
-
-    // Fetch the database with useefect async on mounting
-
-    useEffect(() => {
-        async function fetchTrips() {
-            try {
-                const response = await fetch('http://localhost:4000/trips')
-                console.log(response);
-                if (response.ok) {
-                    const tripsData = await response.json();
-                    console.log(tripsData);
-                    setTrips(tripsData);
-                }
-            } catch (error) {
-                console.log(error)
-            }
-        }
-
-        //call the function otherwise nothing happens
-        fetchTrips();
-    }, [])
+const MyTripsPage = ({ trips }) => {
 
     // filtering trips by the status
+
     const plannedTrips = trips.filter((trip) => trip.status === "planned");
     const completedTrips = trips.filter((trip) => trip.status === "completed");
     const cancelledTrips = trips.filter((trip) => trip.status === "cancelled");
+
 
     return (
         <>
