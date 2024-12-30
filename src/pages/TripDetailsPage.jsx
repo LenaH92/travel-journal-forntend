@@ -10,7 +10,16 @@ const TripDetailsPage = ({ trips }) => {
     find(): Searches for the trip in the trips array where the id matches tripId. */
 
     return (<div>
-        <h1>{trips.tite}</h1>
+        <h1>{trip.title}</h1>
+        <hr />
+        <div>
+            <h3>to {trip.destinations} {trip.duration ? `for ${trip.duration} days` : ""} {trip.startDate ? ` from ${trip.startDate}` : ""} {trip.endDate ? ` to ${trip.endDate}` : ""} </h3>
+            <h1>ADD HERE THE PICTURES IN CaRROUSEL MODE</h1>
+        </div>
+        <hr />
+        <p>{trip.description}</p>
+        <button type="button">Edit trip</button>
+        <button type="button">Delete trip</button>
     </div>);
 }
 
