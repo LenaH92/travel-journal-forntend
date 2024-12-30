@@ -27,6 +27,10 @@ const MyTripsPage = () => {
         fetchTrips();
     }, [])
 
+    // filtering trips by the status
+    const plannedTrips = trips.filter((trip) => trip.status === "planned");
+    const completedTrips = trips.filter((trip) => trip.status === "completed");
+    const cancelledTrips = trips.filter((trip) => trip.status === "cancelled");
 
     return (
         <>
@@ -36,23 +40,38 @@ const MyTripsPage = () => {
                 <div className="plannedTripsDiv">
                     <h4>Planned trips!</h4>
                     <p>Better get them done before it's too late!</p>
-                    <div className="plannedTripsCardsDiv">
-
-                    </div>
+                    <ul className="plannedTripsCardsDiv">
+                        {/* listing the trips as li */}
+                        {plannedTrips.map((trip) => (
+                            <li key={trip.id}>
+                                {trip.title} - {trip.duration} days
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <div className="compleatedTripsDiv">
                     <h4>Compleated trips!</h4>
                     <p>Check your memories here!</p>
-                    <div className="compleatedTripsCardsDiv">
-
-                    </div>
+                    <ul className="compleatedTripsCardsDiv">
+                        {/* listing the trips as li */}
+                        {completedTrips.map((trip) => (
+                            <li key={trip.id}>
+                                {trip.title} - {trip.duration} days
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <div className="cancelledTripsDiv">
                     <h4>Cancelled trips!</h4>
                     <p>Let's keep them as an idea for the future</p>
-                    <div className="cancelledTripsCardsDiv">
-
-                    </div>
+                    <ul className="cancelledTripsCardsDiv">
+                        {/* listing the trips as li */}
+                        {cancelledTrips.map((trip) => (
+                            <li key={trip.id}>
+                                {trip.title} - {trip.duration} days
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
 
