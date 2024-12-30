@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import TripCard from "../components/TripCardComponent";
 
 const MyTripsPage = () => {
 
@@ -42,9 +43,10 @@ const MyTripsPage = () => {
                     <p>Better get them done before it's too late!</p>
                     <ul className="plannedTripsCardsDiv">
                         {/* listing the trips as li */}
-                        {plannedTrips.map((trip) => (
-                            <li key={trip.id}>
-                                {trip.title} - {trip.duration} days
+                        {plannedTrips.map((currentTrip) => (
+                            <li key={currentTrip.id}>
+                                <TripCard
+                                    trip={currentTrip} />
                             </li>
                         ))}
                     </ul>
@@ -54,9 +56,10 @@ const MyTripsPage = () => {
                     <p>Check your memories here!</p>
                     <ul className="compleatedTripsCardsDiv">
                         {/* listing the trips as li */}
-                        {completedTrips.map((trip) => (
-                            <li key={trip.id}>
-                                {trip.title} - {trip.duration} days
+                        {completedTrips.map((currentTrip) => (
+                            <li key={currentTrip.id}>
+                                <TripCard
+                                    trip={currentTrip} />
                             </li>
                         ))}
                     </ul>
@@ -66,9 +69,10 @@ const MyTripsPage = () => {
                     <p>Let's keep them as an idea for the future</p>
                     <ul className="cancelledTripsCardsDiv">
                         {/* listing the trips as li */}
-                        {cancelledTrips.map((trip) => (
-                            <li key={trip.id}>
-                                {trip.title} - {trip.duration} days
+                        {cancelledTrips.map((currentTrip) => (
+                            <li key={currentTrip.id}>
+                                <TripCard
+                                    trip={currentTrip} />
                             </li>
                         ))}
                     </ul>
