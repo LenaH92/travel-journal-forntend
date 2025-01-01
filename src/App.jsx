@@ -24,7 +24,7 @@ function App() {
     async function fetchTrips() {
       try {
         const response = await fetch('http://localhost:4000/trips')
-        console.log(response);
+
         if (response.ok) {
           const tripsData = await response.json();
           console.log(tripsData);

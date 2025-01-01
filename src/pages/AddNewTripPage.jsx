@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+
 
 
 const AddNewTripPage = ({ trips, setTrips }) => {
@@ -13,7 +15,10 @@ const AddNewTripPage = ({ trips, setTrips }) => {
     const [endDate, setEndDate] = useState("");
     const [tripStatus, setTripStatus] = useState("");
 
-    function handleSubmit(event) {
+    const navigate = useNavigate();
+
+
+    async function handleSubmit(event) {
         event.preventDefault();
 
         const newTrip = {
@@ -28,7 +33,27 @@ const AddNewTripPage = ({ trips, setTrips }) => {
             tripStatus
         }
 
-        addNewTrip(newTrip);
+        //This is to update the database
+
+        try {
+            const response = await fetch('http://localhost:4000/trips', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newTrip)
+            })
+
+            if (response.ok) {
+                const data = await response.json()
+
+                //This navigate is giving issues :(
+                //navigate('/my-trips')
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
 
         setTitle("")
         setDuration("")
@@ -39,11 +64,9 @@ const AddNewTripPage = ({ trips, setTrips }) => {
         setEndDate("")
         setTripStatus("")
 
+
     }
 
-    function addNewTrip(trip) {
-        setTrips([trip, ...trips])
-    }
 
     return (<div id="newTripPage">
         <h2>Add your new trip here!</h2>
@@ -95,7 +118,7 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                     required
                     type="text"
                     value={images}
-                    placeholder="Write here the url for the images of the trip"
+                    placeholder="Write here the URLs for the images of the trip, separating them with a coma (,)"
                     onChange={(event) => setImages(event.target.value)} />
             </label>
 
@@ -103,9 +126,9 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                 Trip Start Date:
                 <input
                     required
-                    type="text"
+                    type="date"
                     value={startDate}
-                    placeholder="Write here the starting date of the trip with this format DD/MM/YYYY"
+                    placeholder="Write here the starting date of the trip with this format YYYY-MM-DD"
                     onChange={(event) => setStartDate(event.target.value)} />
             </label>
 
@@ -113,15 +136,18 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                 Trip End Date:
                 <input
                     required
-                    type="text"
+                    type="date"
                     value={endDate}
-                    placeholder="Write here the ending date of the trip with this format DD/MM/YYYY"
+                    placeholder="Write here the ending date of the trip with this format YYYY-MM-DD"
                     onChange={(event) => setEndDate(event.target.value)} />
             </label>
 
             <label>
                 Trip status:
-                <select required value={tripStatus} onChange={event => setTitle(event.target.value)}>
+                <select required value={tripStatus} onChange={event => {
+                    console.log(event);
+                    setTripStatus(event.target.value)
+                }}>
                     <option value="planned">Planned</option>
                     <option value="completed">Completed</option>
                     <option value="cancelled">Cancelled</option>
