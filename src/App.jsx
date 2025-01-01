@@ -54,7 +54,7 @@ function App() {
 
         <Route path="/trip/:tripId" element={<TripDetailsPage trips={trips} />} />
 
-        <Route path="/trip/new" element={<AddNewTripPage />} />
+        <Route path="/trip/new" element={<AddNewTripPage trips={trips} setTrips={setTrips} />} />
 
         <Route path="/about-us" element={<AboutUsPage />} /> {/* I added an about us to put something about us, we can delete it if you dont want it */}
 

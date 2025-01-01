@@ -5,9 +5,9 @@ const MyTripsPage = ({ trips }) => {
 
     // filtering trips by the status
 
-    const plannedTrips = trips.filter((trip) => trip.status === "planned");
-    const completedTrips = trips.filter((trip) => trip.status === "completed");
-    const cancelledTrips = trips.filter((trip) => trip.status === "cancelled");
+    const plannedTrips = trips.filter((trip) => trip.tripStatus === "planned");
+    const completedTrips = trips.filter((trip) => trip.tripStatus === "completed");
+    const cancelledTrips = trips.filter((trip) => trip.tripStatus === "cancelled");
 
 
     return (
