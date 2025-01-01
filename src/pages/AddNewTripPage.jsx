@@ -128,7 +128,6 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                     required
                     type="date"
                     value={startDate}
-                    placeholder="Write here the starting date of the trip with this format YYYY-MM-DD"
                     onChange={(event) => setStartDate(event.target.value)} />
             </label>
 
@@ -138,7 +137,6 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                     required
                     type="date"
                     value={endDate}
-                    placeholder="Write here the ending date of the trip with this format YYYY-MM-DD"
                     onChange={(event) => setEndDate(event.target.value)} />
             </label>
 
@@ -148,6 +146,7 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                     console.log(event);
                     setTripStatus(event.target.value)
                 }}>
+                    <option value="">-- Select --</option>
                     <option value="planned">Planned</option>
                     <option value="completed">Completed</option>
                     <option value="cancelled">Cancelled</option>
