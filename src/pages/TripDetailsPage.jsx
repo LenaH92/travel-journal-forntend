@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-const TripDetailsPage = ({ trips }) => {
+const TripDetailsPage = ({ trips, handleDelete }) => {
 
     const { tripId } = useParams();
 
@@ -19,7 +19,11 @@ const TripDetailsPage = ({ trips }) => {
         <hr />
         <p>{trip.description}</p>
         <button type="button">Edit trip</button>
-        <button type="button">Delete trip</button>
+        <button
+            type="button"
+            onClick={() => handleDelete(trip.id)}>
+            Delete trip
+        </button>
     </div>);
 }
 

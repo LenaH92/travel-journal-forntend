@@ -1,7 +1,7 @@
 
 import TripCard from "../components/TripCard";
 
-const MyTripsPage = ({ trips }) => {
+const MyTripsPage = ({ trips, handleDelete }) => {
 
     // filtering trips by the status
 
@@ -23,7 +23,7 @@ const MyTripsPage = ({ trips }) => {
                         {plannedTrips.map((currentTrip) => (
                             <li key={currentTrip.id}>
                                 <TripCard
-                                    trip={currentTrip} />
+                                    trip={currentTrip} handleDelete={handleDelete} />
                             </li>
                         ))}
                     </ul>
@@ -36,7 +36,7 @@ const MyTripsPage = ({ trips }) => {
                         {completedTrips.map((currentTrip) => (
                             <li key={currentTrip.id}>
                                 <TripCard
-                                    trip={currentTrip} />
+                                    trip={currentTrip} handleDelete={handleDelete} />
                             </li>
                         ))}
                     </ul>
@@ -49,7 +49,7 @@ const MyTripsPage = ({ trips }) => {
                         {cancelledTrips.map((currentTrip) => (
                             <li key={currentTrip.id}>
                                 <TripCard
-                                    trip={currentTrip} />
+                                    trip={currentTrip} handleDelete={handleDelete} />
                             </li>
                         ))}
                     </ul>

@@ -1,5 +1,5 @@
 
-import { Route, Routes } from 'react-router-dom'
+import { useNavigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
@@ -39,6 +39,30 @@ function App() {
     fetchTrips();
   }, [])
 
+  const navigate = useNavigate();
+
+  //creating the function that is in charge of deleting a trip
+  async function handleDelete(id) {
+
+    try {
+      const response = await fetch(`http://localhost:4000/trips//${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        const updateTripList = trips.filter(currentTrip => currentTrip.id !== id);
+        setTrips(updateTripList);
+        navigate("/my-trips")
+
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
+
+
+  }
+
   return (
     <>
       <Navbar />
@@ -50,9 +74,9 @@ function App() {
 
         <Route path="/instructions" element={<InstructionsPage />} /> {/* I thought may be we can put a page to tell what they can do in the page? */}
 
-        <Route path="/my-trips" element={<MyTripsPage trips={trips} />} />
+        <Route path="/my-trips" element={<MyTripsPage trips={trips} handleDelete={handleDelete} />} />
 
-        <Route path="/trip/:tripId" element={<TripDetailsPage trips={trips} />} />
+        <Route path="/trip/:tripId" element={<TripDetailsPage trips={trips} handleDelete={handleDelete} />} />
 
         <Route path="/trip/new" element={<AddNewTripPage trips={trips} setTrips={setTrips} />} />
 

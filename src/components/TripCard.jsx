@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const TripCard = ({ trip }) => {
+const TripCard = ({ trip, handleDelete }) => {
     return (<>
         <h3><Link to={`/trip/${trip.id}`}>{trip.title}</Link> </h3>
 
@@ -18,6 +18,11 @@ const TripCard = ({ trip }) => {
                 />
             </Link>
         )}
+        <button
+            type="button"
+            onClick={() => handleDelete(trip.id)}>
+            Delete trip
+        </button>
     </>);
 }
 
