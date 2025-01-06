@@ -92,15 +92,15 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                     onChange={(event) => setDuration(event.target.value)} />
             </label>
 
-            <label>
-                Trip description:
-                <input
-                    required
-                    type="text"
-                    value={description}
-                    placeholder="Write here the description of the trip"
-                    onChange={(event) => setDescription(event.target.value)} />
-            </label>
+            <label> Trip description: </label>
+            <textarea
+                required
+                rows="4"
+                cols="50"
+                value={description}
+                placeholder="Write here the description of the trip"
+                onChange={(event) => setDescription(event.target.value)}
+            />
 
             <label>
                 Trip destination:
