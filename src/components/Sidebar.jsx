@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <ul>
+    <ul className="sidebar">
       <NavLink to="/">
         <li>Home</li>
       </NavLink>

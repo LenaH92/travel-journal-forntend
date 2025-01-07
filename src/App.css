@@ -1,19 +1,14 @@
+/* General styling */
+
 * {
     padding: 0;
     margin: 0;
     font-family: "Sour Gummy", serif;
 }
 
-.navbar {
-    background-image: url('/src/img/navbar_background_small2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+body {
+    background-color: rgb(241, 232, 219);
+
 }
 
 h1,
@@ -24,3 +19,43 @@ h5,
 h6 {
     font-family: "Playwrite AU SA", serif;
 }
+
+/* heather styling */
+.navbar {
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) calc(100% - 10px), rgb(241, 232, 219) 100%),
+        url('/src/img/navbar_background_small2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* sidebar styling */
+.sidebar {
+    /* position: fixed; */
+    top: 220px;
+    left: 30px;
+    width: 250px;
+    /* height: 100vh; */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2)
+}
+
+/* footer styling */
+.footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: #a8c5d8;
+    box-shadow: 0 -10px 10px 0 #a8c5d8;
+    margin-top: 20px;
+}
+
+
+
+/* instructions Page styling */
+.instructionsPage {}
