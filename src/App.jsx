@@ -19,22 +19,24 @@ function App() {
   //usestate to load in the trips data
   const [trips, setTrips] = useState([])
 
-  // Fetch the database with useefect async on mounting
+  // Fetch the database and calling useefect on mounting
+  async function fetchTrips() {
+    try {
+      const response = await fetch('http://localhost:4000/trips')
+
+      if (response.ok) {
+        const tripsData = await response.json();
+        console.log(tripsData);
+        setTrips(tripsData);
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   useEffect(() => {
-    async function fetchTrips() {
-      try {
-        const response = await fetch('http://localhost:4000/trips')
 
-        if (response.ok) {
-          const tripsData = await response.json();
-          console.log(tripsData);
-          setTrips(tripsData);
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    }
 
     //call the function otherwise nothing happens
     fetchTrips();
@@ -79,7 +81,7 @@ function App() {
 
         <Route path="/trip/:tripId" element={<TripDetailsPage trips={trips} handleDelete={handleDelete} />} />
 
-        <Route path="/trip/new" element={<AddNewTripPage trips={trips} setTrips={setTrips} />} />
+        <Route path="/trip/new" element={<AddNewTripPage trips={trips} setTrips={setTrips} fetchTrips={fetchTrips} />} />
 
         <Route path="/about-us" element={<AboutUsPage />} /> {/* I added an about us to put something about us, we can delete it if you dont want it */}
         <Route path="/edit" element={<EditPage />} /> {/* */}

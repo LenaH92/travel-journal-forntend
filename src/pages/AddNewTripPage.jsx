@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 
 
-const AddNewTripPage = ({ trips, setTrips }) => {
+const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
 
     const [title, setTitle] = useState("");
     const [duration, setDuration] = useState("");
@@ -33,7 +33,7 @@ const AddNewTripPage = ({ trips, setTrips }) => {
             tripStatus
         }
 
-        //This is to update the database
+        //This is to send it to the database
 
         try {
             const response = await fetch('http://localhost:4000/trips', {
@@ -46,9 +46,7 @@ const AddNewTripPage = ({ trips, setTrips }) => {
 
             if (response.ok) {
                 const data = await response.json()
-
-                //This navigate is giving issues :(
-                //navigate('/my-trips')
+                await fetchTrips()
             }
 
         } catch (error) {
@@ -64,6 +62,7 @@ const AddNewTripPage = ({ trips, setTrips }) => {
         setEndDate("")
         setTripStatus("")
 
+        navigate('/my-trips')
 
     }
 
@@ -117,7 +116,7 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                 <input
                     required
                     type="text"
-                    value={images.join(",")} // Mostrar las URLs separadas por coma
+                    value={images.join(",")}
                     placeholder="Write here the URLs for the images of the trip, separating them with a coma (,)"
                     onChange={(event) => setImages(event.target.value.split(",").map(url => url.trim()))} />
             </label>
