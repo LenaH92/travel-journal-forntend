@@ -38,7 +38,7 @@ const InstructionsPage = () => {
                 <li>Click on the <strong>trip title</strong> or <strong>See More</strong> to view detailed trip information.</li>
                 <li>Want to delete a trip? Hit the <strong>Delete</strong> button, but be careful—it’s permanent!</li>
                 <li>
-                    Adding images? Paste the URLs of your favorite photos while creating or editing trips.
+                    Adding images? Paste the URLs of your favorite photos while creating or editing trips separating them with a coma!
                 </li>
             </ul>
 
