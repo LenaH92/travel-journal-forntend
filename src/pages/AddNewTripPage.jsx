@@ -117,9 +117,9 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                 <input
                     required
                     type="text"
-                    value={images}
+                    value={images.join(",")} // Mostrar las URLs separadas por coma
                     placeholder="Write here the URLs for the images of the trip, separating them with a coma (,)"
-                    onChange={(event) => setImages(event.target.value)} />
+                    onChange={(event) => setImages(event.target.value.split(",").map(url => url.trim()))} />
             </label>
 
             <label>
