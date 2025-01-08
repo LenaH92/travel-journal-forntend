@@ -2,7 +2,7 @@ import React from "react";
 
 const InstructionsPage = () => {
     return (
-        <div className="instructions-page">
+        <div className="instructionsPage">
             <h1>👋 Hello User!</h1>
             <h2>Welcome to Your Travel Journal! 🌍✈️</h2>
             <p>
