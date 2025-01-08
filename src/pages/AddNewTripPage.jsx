@@ -36,7 +36,7 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
         //This is to send it to the database
 
         try {
-            const response = await fetch('http://localhost:4000/trips', {
+            const response = await fetch(`${meta.import.env.VITE_API_URL}/trips`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

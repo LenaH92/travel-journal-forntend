@@ -37,13 +37,20 @@ h6 {
 }
 
 /* sidebar styling */
+.appContainer {
+    display: flex;
+}
+
 .sidebar {
-    /* position: fixed; */
     top: 220px;
-    left: 30px;
+    padding-left: 40px;
+    list-style: none;
     width: 250px;
-    /* height: 100vh; */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2)
+}
+
+.pagesDiv {
+    margin-left: 40px;
 }
 
 /* footer styling */

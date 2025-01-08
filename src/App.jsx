@@ -22,7 +22,7 @@ function App() {
   // Fetch the database and calling useefect on mounting
   async function fetchTrips() {
     try {
-      const response = await fetch('http://localhost:4000/trips')
+      const response = await fetch(`${meta.import.env.VITE_API_URL}/trips`)
 
       if (response.ok) {
         const tripsData = await response.json();
@@ -48,7 +48,7 @@ function App() {
   async function handleDelete(id) {
 
     try {
-      const response = await fetch(`http://localhost:4000/trips//${id}`, {
+      const response = await fetch(`${meta.import.env.VITE_API_URL}/trips//${id}`, {
         method: "DELETE",
       });
 
@@ -69,26 +69,31 @@ function App() {
   return (
     <>
       <Navbar />
-      <Sidebar />
+      <div className='appContainer'>
+        <Sidebar />
+        <div className='pagesDiv'>
+          <Routes>
 
-      <Routes>
+            <Route path="/" element={<HomePage />} />
 
-        <Route path="/" element={<HomePage />} />
+            <Route path="/instructions" element={<InstructionsPage />} /> {/* I thought may be we can put a page to tell what they can do in the page? */}
 
-        <Route path="/instructions" element={<InstructionsPage />} /> {/* I thought may be we can put a page to tell what they can do in the page? */}
+            <Route path="/my-trips" element={<MyTripsPage trips={trips} handleDelete={handleDelete} />} />
 
-        <Route path="/my-trips" element={<MyTripsPage trips={trips} handleDelete={handleDelete} />} />
+            <Route path="/trip/:tripId" element={<TripDetailsPage trips={trips} handleDelete={handleDelete} />} />
 
-        <Route path="/trip/:tripId" element={<TripDetailsPage trips={trips} handleDelete={handleDelete} />} />
+            <Route path="/trip/new" element={<AddNewTripPage trips={trips} setTrips={setTrips} fetchTrips={fetchTrips} />} />
 
-        <Route path="/trip/new" element={<AddNewTripPage trips={trips} setTrips={setTrips} fetchTrips={fetchTrips} />} />
+            <Route path="/about-us" element={<AboutUsPage />} /> {/* I added an about us to put something about us, we can delete it if you dont want it */}
+            <Route path="/edit" element={<EditPage />} /> {/* */}
 
-        <Route path="/about-us" element={<AboutUsPage />} /> {/* I added an about us to put something about us, we can delete it if you dont want it */}
-        <Route path="/edit" element={<EditPage />} /> {/* */}
+            <Route path="*" element={<NotFoundPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
 
-      </Routes>
+      </div>
+
 
       <Footer />
     </>
