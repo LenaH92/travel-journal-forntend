@@ -1,13 +1,11 @@
-import { Link } from "react-router-dom";
-
 function Footer() {
 
     return (
         <div className="footer">
             <h4>Check out our repos!</h4>
-            <Link to="https://github.com/LenaH92/travel-journal-forntend"><p>Forntend Repo</p></Link >
+            <a href="https://github.com/LenaH92/travel-journal-forntend" target="_blank"><p>Forntend Repo</p></a >
             <p>and</p>
-            <Link to="https://github.com/LenaH92/travel-journal-forntend"><p>Backend Repo</p></Link >
+            <a href="https://github.com/miomate/travel-journal-backend" target="_blank"><p>Backend Repo</p></a >
         </div>
     )
 
