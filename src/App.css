@@ -58,7 +58,7 @@ h6 {
 
 
 .pagesDiv {
-    margin-left: 40px;
+    margin: 0 40px 0 40px;
 }
 
 /* footer styling */
@@ -86,4 +86,31 @@ h6 {
     flex-direction: column;
     min-height: 500px;
     justify-content: space-around;
+}
+
+/* aboutus styling */
+.justUs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+
+#albertsDiv,
+#lenasDiv {
+    text-align: justify;
+    padding: 30px;
+    max-width: 400px;
+    background: radial-gradient(ellipse, rgb(241, 232, 219), #c0e0f5);
+    border-radius: 30px;
+
+}
+
+#albertsDiv img,
+#lenasDiv img {
+    width: 250px;
+    border-radius: 30px;
+    display: block;
+    margin: auto;
+    padding-bottom: 20px;
 }
