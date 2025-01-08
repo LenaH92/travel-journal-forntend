@@ -70,16 +70,17 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
     return (<div id="newTripPage">
         <h2>Add your new trip here!</h2>
         <p>Star planning a new trip here or add one that already happened!</p>
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <label>
                 Trip title:
-                <input
-                    required
-                    type="text"
-                    value={title}
-                    placeholder="Write here the title of the trip"
-                    onChange={(event) => setTitle(event.target.value)} />
+
             </label>
+            <input
+                required
+                type="text"
+                value={title}
+                placeholder="Write here the title of the trip"
+                onChange={(event) => setTitle(event.target.value)} />
 
             <label>
                 Trip duration:
@@ -89,36 +90,6 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
                     value={duration}
                     placeholder="Write here the duration of the trip in days"
                     onChange={(event) => setDuration(event.target.value)} />
-            </label>
-
-            <label> Trip description: </label>
-            <textarea
-                required
-                rows="4"
-                cols="50"
-                value={description}
-                placeholder="Write here the description of the trip"
-                onChange={(event) => setDescription(event.target.value)}
-            />
-
-            <label>
-                Trip destination:
-                <input
-                    required
-                    type="text"
-                    value={destinations}
-                    placeholder="Write here the destination of the trip"
-                    onChange={(event) => setDestinations(event.target.value)} />
-            </label>
-
-            <label>
-                Trip images:
-                <input
-                    required
-                    type="text"
-                    value={images.join(",")}
-                    placeholder="Write here the URLs for the images of the trip, separating them with a coma (,)"
-                    onChange={(event) => setImages(event.target.value.split(",").map(url => url.trim()))} />
             </label>
 
             <label>
@@ -138,6 +109,41 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
                     value={endDate}
                     onChange={(event) => setEndDate(event.target.value)} />
             </label>
+
+            <label>
+                Trip destination:
+
+            </label>
+            <input
+                required
+                type="text"
+                value={destinations}
+                placeholder="Write here the destination of the trip"
+                onChange={(event) => setDestinations(event.target.value)} />
+
+            <label> Trip description: </label>
+            <textarea
+                required
+                rows="4"
+                cols="50"
+                value={description}
+                placeholder="Write here the description of the trip"
+                onChange={(event) => setDescription(event.target.value)}
+            />
+
+
+            <label>
+                Trip images:
+
+            </label>
+            <textarea
+                required
+                rows="4"
+                cols="50"
+                value={images.join(",")}
+                placeholder="Write here the URLs for the images of the trip, separating them with a coma (,)"
+                onChange={(event) => setImages(event.target.value.split(/\s*,\s*|\s*\n\s*/).map(url => url.trim()))} />
+
 
             <label>
                 Trip status:
