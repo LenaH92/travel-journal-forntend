@@ -22,7 +22,7 @@ function App() {
   // Fetch the database and calling useefect on mounting
   async function fetchTrips() {
     try {
-      const response = await fetch(`${meta.import.env.VITE_API_URL}/trips`)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/trips`)
 
       if (response.ok) {
         const tripsData = await response.json();
@@ -48,7 +48,7 @@ function App() {
   async function handleDelete(id) {
 
     try {
-      const response = await fetch(`${meta.import.env.VITE_API_URL}/trips//${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/trips//${id}`, {
         method: "DELETE",
       });
 
