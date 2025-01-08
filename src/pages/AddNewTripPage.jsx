@@ -66,6 +66,20 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
 
     }
 
+    // Handleing input or url, so whether , or next line, I dont understand very well how this wors but it does 
+    const [inputText, setInputText] = useState(''); // for the text input 
+
+    const handleInputChange = (event) => {
+        const value = event.target.value;
+        setInputText(value);
+
+        // processing what the user writes
+        const newImages = value
+            .split(/\s*,\s*|\s*\n\s*/).map(url => url.trim())
+            .filter(url => url.length > 0); // filter empty url
+        setImages(newImages);
+    };
+
 
     return (<div id="newTripPage">
         <h2>Add your new trip here!</h2>
@@ -140,9 +154,9 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
                 required
                 rows="4"
                 cols="50"
-                value={images.join(",")}
-                placeholder="Write here the URLs for the images of the trip, separating them with a coma (,)"
-                onChange={(event) => setImages(event.target.value.split(/\s*,\s*|\s*\n\s*/).map(url => url.trim()))} />
+                value={inputText} // Mostramos el texto tal cual el usuario lo escribe
+                placeholder="Write here the URLs for the images of the trip, separating them with a coma (,) or new lines"
+                onChange={handleInputChange} />
 
 
             <label>
