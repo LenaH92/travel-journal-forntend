@@ -36,11 +36,11 @@ h6 {
 }
 
 /*trips-->japan--> shows all images in a grid, previosly the orginal resolution was loaded, to big*/
-.imagesArrayDiv {
+/* .imagesArrayDiv {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-}
+} */
 
 
 
