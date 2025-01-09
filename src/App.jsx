@@ -1,4 +1,3 @@
-
 import { useNavigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
@@ -11,7 +10,6 @@ import InstructionsPage from './pages/InstructionsPage'
 import MyTripsPage from './pages/MyTripsPage'
 import AddNewTripPage from './pages/AddNewTripPage'
 import TripDetailsPage from './pages/TripDetailsPage'
-import EditPage from './pages/EditPage'
 import { useEffect, useState } from "react";
 
 function App() {
@@ -85,7 +83,6 @@ function App() {
             <Route path="/trip/new" element={<AddNewTripPage trips={trips} setTrips={setTrips} fetchTrips={fetchTrips} />} />
 
             <Route path="/about-us" element={<AboutUsPage />} /> {/* I added an about us to put something about us, we can delete it if you dont want it */}
-            <Route path="/edit" element={<EditPage />} /> {/* */}
 
             <Route path="*" element={<NotFoundPage />} />
 

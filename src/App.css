@@ -8,7 +8,11 @@
 
 body {
     background-color: rgb(241, 232, 219);
+}
 
+body,
+html {
+    height: 100%;
 }
 
 p,
@@ -46,6 +50,7 @@ h6 {
 /* sidebar styling */
 .appContainer {
     display: flex;
+    flex-grow: 1;
 }
 
 .sidebar {
@@ -58,6 +63,8 @@ h6 {
 
 
 .pagesDiv {
+    flex-grow: 1;
+    /* Making this section to grow all the way down */
     margin: 0 40px 0 40px;
 }
 
@@ -68,6 +75,15 @@ h6 {
     background-color: #a8c5d8;
     box-shadow: 0 -10px 10px 0 #a8c5d8;
     margin-top: 20px;
+    flex-shrink: 0;
+    /* Prevents the footer to shrink*/
+}
+
+body>#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Making sure the main container occupies the whole window height => footer config */
 }
 
 /* instructions Page styling */
