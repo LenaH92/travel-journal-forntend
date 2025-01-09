@@ -1,0 +1,124 @@
+/* General styling */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Sour Gummy", serif;
+}
+
+body {
+    background-color: rgb(241, 232, 219);
+
+}
+
+p,
+a,
+li {
+    font-size: 18px;
+    padding: 8px 0 10px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playwrite AU SA", serif;
+}
+
+/* heather styling */
+.navbar {
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) calc(100% - 10px), rgb(241, 232, 219) 100%),
+        url('/src/img/navbar_background_small2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* sidebar styling */
+.appContainer {
+    display: flex;
+}
+
+.sidebar {
+    top: 220px;
+    padding-left: 40px;
+    list-style: none;
+    min-width: 250px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2)
+}
+
+
+.pagesDiv {
+    margin: 0 40px 0 40px;
+}
+
+/* footer styling */
+.footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: #a8c5d8;
+    box-shadow: 0 -10px 10px 0 #a8c5d8;
+    margin-top: 20px;
+}
+
+/* instructions Page styling */
+.instructionsPage li {
+    margin-left: 40px;
+}
+
+.instructionsPage h2 {
+    padding-top: 20px;
+}
+
+/* form styling */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    justify-content: space-around;
+}
+
+/* aboutus styling */
+.justUs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+
+#albertsDiv,
+#lenasDiv {
+    text-align: justify;
+    padding: 30px;
+    max-width: 400px;
+    background: radial-gradient(ellipse, rgb(241, 232, 219) 60%, #c0e0f5 100%);
+    box-shadow: 0 0 5px 3px #a8c5d8;
+    border-radius: 30px;
+    margin: 20px 0 20px 0;
+
+}
+
+#albertsDiv img,
+#lenasDiv img {
+    width: 250px;
+    border-radius: 30px;
+    display: block;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+/* Hompage styling */
+.buttonsDiv {
+    display: flex;
+    flex-direction: column;
+}

@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 
 
-const AddNewTripPage = ({ trips, setTrips }) => {
+const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
 
     const [title, setTitle] = useState("");
     const [duration, setDuration] = useState("");
@@ -33,10 +33,10 @@ const AddNewTripPage = ({ trips, setTrips }) => {
             tripStatus
         }
 
-        //This is to update the database
+        //This is to send it to the database
 
         try {
-            const response = await fetch('http://localhost:4000/trips', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/trips`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,9 +46,7 @@ const AddNewTripPage = ({ trips, setTrips }) => {
 
             if (response.ok) {
                 const data = await response.json()
-
-                //This navigate is giving issues :(
-                //navigate('/my-trips')
+                await fetchTrips()
             }
 
         } catch (error) {
@@ -64,23 +62,39 @@ const AddNewTripPage = ({ trips, setTrips }) => {
         setEndDate("")
         setTripStatus("")
 
+        navigate('/my-trips')
 
     }
+
+    // Handleing input or url, so whether , or next line, I dont understand very well how this wors but it does 
+    const [inputText, setInputText] = useState(''); // for the text input 
+
+    const handleInputChange = (event) => {
+        const value = event.target.value;
+        setInputText(value);
+
+        // processing what the user writes
+        const newImages = value
+            .split(/\s*,\s*|\s*\n\s*/).map(url => url.trim())
+            .filter(url => url.length > 0); // filter empty url
+        setImages(newImages);
+    };
 
 
     return (<div id="newTripPage">
         <h2>Add your new trip here!</h2>
         <p>Star planning a new trip here or add one that already happened!</p>
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <label>
                 Trip title:
-                <input
-                    required
-                    type="text"
-                    value={title}
-                    placeholder="Write here the title of the trip"
-                    onChange={(event) => setTitle(event.target.value)} />
+
             </label>
+            <input
+                required
+                type="text"
+                value={title}
+                placeholder="Write here the title of the trip"
+                onChange={(event) => setTitle(event.target.value)} />
 
             <label>
                 Trip duration:
@@ -90,36 +104,6 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                     value={duration}
                     placeholder="Write here the duration of the trip in days"
                     onChange={(event) => setDuration(event.target.value)} />
-            </label>
-
-            <label> Trip description: </label>
-            <textarea
-                required
-                rows="4"
-                cols="50"
-                value={description}
-                placeholder="Write here the description of the trip"
-                onChange={(event) => setDescription(event.target.value)}
-            />
-
-            <label>
-                Trip destination:
-                <input
-                    required
-                    type="text"
-                    value={destinations}
-                    placeholder="Write here the destination of the trip"
-                    onChange={(event) => setDestinations(event.target.value)} />
-            </label>
-
-            <label>
-                Trip images:
-                <input
-                    required
-                    type="text"
-                    value={images}
-                    placeholder="Write here the URLs for the images of the trip, separating them with a coma (,)"
-                    onChange={(event) => setImages(event.target.value)} />
             </label>
 
             <label>
@@ -139,6 +123,41 @@ const AddNewTripPage = ({ trips, setTrips }) => {
                     value={endDate}
                     onChange={(event) => setEndDate(event.target.value)} />
             </label>
+
+            <label>
+                Trip destination:
+
+            </label>
+            <input
+                required
+                type="text"
+                value={destinations}
+                placeholder="Write here the destination of the trip"
+                onChange={(event) => setDestinations(event.target.value)} />
+
+            <label> Trip description: </label>
+            <textarea
+                required
+                rows="4"
+                cols="50"
+                value={description}
+                placeholder="Write here the description of the trip"
+                onChange={(event) => setDescription(event.target.value)}
+            />
+
+
+            <label>
+                Trip images:
+
+            </label>
+            <textarea
+                required
+                rows="4"
+                cols="50"
+                value={inputText} // Mostramos el texto tal cual el usuario lo escribe
+                placeholder="Write here the URLs for the images of the trip, separating them with a coma (,) or new lines"
+                onChange={handleInputChange} />
+
 
             <label>
                 Trip status:
