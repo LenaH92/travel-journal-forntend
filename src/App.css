@@ -35,6 +35,20 @@ h6 {
   font-family: "Playwrite AU SA", serif;
 }
 
+/*trips-->japan--> shows all images in a grid, previosly the orginal resolution was loaded, to big*/
+/* .imagesArrayDiv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+} */
+
+
+
+
+
+
+
+
 
 /* ~~~~~~~~~~~~~~~~~~TESTING  making images clickable and then big~~~~~~~~~~~~~~~~~~~~~~~~ */
 .images img {

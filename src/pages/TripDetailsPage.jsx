@@ -78,7 +78,6 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
 
   return (
     <div>
-      <h1>delete</h1>
       <h1>{trip.title}</h1>
       <hr />
       <div>
