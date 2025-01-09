@@ -10,7 +10,7 @@ const AboutUsPage = () => {
             <p>Thank you for visiting, and we hope you get to know a little bit about us here</p>
             <div className="justUs">
                 <div id="albertsDiv">
-                    <img src="src/img/albert_pfp.png " alt="Albert's slack profile picture" />
+                    <img src="public/albert_pfp.png" alt="Albert's slack profile picture" />
                     <h3>Albert Salgiriev's story</h3>
                     <p>Albert Salgiriev is a passionate learner and a lover of all things tech. Currently, he is diving into the world of Full Stack Web Development through the IronHack bootcamp. Born with a strong appreciation for music, Albert has always been drawn to the powerful sounds of heavy metal. However, recently, he has discovered a new passion for electro music, enjoying the electronic beats and rhythms that add a fresh dimension to his music taste.</p>
 
@@ -19,7 +19,7 @@ const AboutUsPage = () => {
                     <p>Through his time at IronHack, Albert is not just building technical skills but also expanding his horizons, connecting his diverse passions, and bringing his creativity into every project he works on.</p>
                 </div>
                 <div id="lenasDiv">
-                    <img src="src/img/lena_pfp.png" alt="Lena's slack profile picture" />
+                    <img src="public/lena_pfp.png" alt="Lena's slack profile picture" />
                     <h3>Lena Cortes' story</h3>
                     <p>Lena Cortés, born and raised in Valencia, Spain, has always had a passion for exploring new places. Her love for travel has taken her to various corners of the world, where she’s immersed herself in different cultures and experiences. Despite her busy life as an avid traveler, Lena decided to expand her horizons even further by diving into the world of programming.</p>
 
