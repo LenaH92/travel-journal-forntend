@@ -32,7 +32,9 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:4000/trips/${updatedTrip.id}`, {
+      // https://travel-journal-backend-t7fs.onrender.com
+      // ${import.meta.env.VITE_API_URL}
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/trips/${updatedTrip.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

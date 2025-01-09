@@ -10,9 +10,10 @@ const Edit = ({ trip, handleUpdate }) => {
       setFormData({
         id: trip.id, // Ensure the trip id is included in form data
         title: trip.title,
-        description: trip.description,
-        destinations: trip.destinations,
         duration: trip.duration,
+        destinations: trip.destinations,
+        description: trip.description,
+        // images: trip.images || [], // Ensure images is in the form data 
         startDate: trip.startDate,
         endDate: trip.endDate,
         tripStatus: trip.tripStatus || "", // Ensure tripStatus is in the form data
