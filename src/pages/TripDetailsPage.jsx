@@ -4,10 +4,10 @@ import Edit from "../components/Edit";
 
 const TripDetailsPage = ({ trips, handleDelete }) => {
   const [tripsState, setTrips] = useState(trips);
-  const [isEditing, setIsEditing] = useState(false); // State to control the visibility of the Edit form
+  const [isEditing, setIsEditing] = useState(false);
   const { tripId } = useParams();
-
-  const [trip, setTrip] = useState(null); // Initialize a separate state for the current trip
+  const [trip, setTrip] = useState(null);
+  const [expandedImage, setExpandedImage] = useState(null); // Moved here to main component
 
   // Fetch the trip data based on the tripId from the URL
   useEffect(() => {
@@ -15,7 +15,7 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
       const foundTrip = tripsState.find(
         (currentTrip) => String(currentTrip.id) === tripId
       );
-      setTrip(foundTrip); // Set the trip state to the found trip
+      setTrip(foundTrip);
     }
   }, [tripId, tripsState]);
 
@@ -34,8 +34,6 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
     }
 
     try {
-      // https://travel-journal-backend-t7fs.onrender.com/trips
-      // const response = await fetch(`http://localhost:4000/trips/${updatedTrip.id}`, {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/trips/${updatedTrip.id}`,
         {
@@ -48,12 +46,11 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
       );
       const result = await response.json();
       if (response.ok) {
-        // Update the trip in the state after successful update
         setTrips((prevTrips) =>
           prevTrips.map((t) => (t.id === updatedTrip.id ? updatedTrip : t))
         );
-        setTrip(updatedTrip); // Update the trip state after successful update
-        setIsEditing(false); // Close the edit form after successful update
+        setTrip(updatedTrip);
+        setIsEditing(false);
       } else {
         console.error("Failed to update trip:", result);
       }
@@ -68,6 +65,16 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
       .map((line, index) => <p key={index}>{line}</p>);
     return <div>{formattedDescription}</div>;
   }
+
+  // Handle the image click to expand
+  const handleImageClick = (image) => {
+    setExpandedImage(image);
+  };
+
+  // Handle modal close
+  const closeModal = () => {
+    setExpandedImage(null);
+  };
 
   return (
     <div>
@@ -89,8 +96,22 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
             trip.images
               .slice()
               .map((image, index) => (
-                <img key={index} src={image} alt={`Trip image ${index + 1}`} />
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Trip image ${index + 1}`}
+                  onClick={() => handleImageClick(image)}
+                  style={{ width: "100px", cursor: "pointer", margin: "10px" }}
+                />
               ))
+          )}
+          {expandedImage && (
+            <div className="modal" onClick={closeModal}>
+              <div className="modal-content">
+                <img src={expandedImage} alt="Expanded view" />
+                <button onClick={closeModal}>Close</button>
+              </div>
+            </div>
           )}
         </div>
       </div>
