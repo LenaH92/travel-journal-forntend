@@ -1,6 +1,14 @@
+// import
+
 const AboutUsPage = () => {
     return (<>
         <h1>This is the about us page</h1>
+        <p>not working</p>
+        <img src="public/albert_pfp.png" alt="Albert's slack profile picture" />
+        <p>with slash</p>
+        <img src="/public/albert_pfp.png" alt="Albert's slack profile picture" />
+        <p>dot slash</p>
+        <img src="./public/albert_pfp.png" alt="Albert's slack profile picture" />
         <section className="ourStory">
             <h2>Our Story</h2>
             <p>Hello and welcome!</p>
