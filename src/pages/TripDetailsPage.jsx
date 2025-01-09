@@ -66,6 +66,7 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
 
   return (
     <div>
+      <h1>delete</h1>
       <h1>{trip.title}</h1>
       <hr />
       <div>
@@ -75,6 +76,7 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
           {trip.startDate ? ` from ${trip.startDate}` : ""}{" "}
           {trip.endDate ? ` to ${trip.endDate}` : ""}
         </h3>
+        <img src={trip.images[0]} alt="" />
       </div>
       <hr />
       <section className="descriptionDiv">
