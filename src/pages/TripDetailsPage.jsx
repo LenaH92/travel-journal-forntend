@@ -87,7 +87,7 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
             <p>No images available for this trip.</p>
           ) : (
             trip.images
-              .slice(0, 2)
+              .slice()
               .map((image, index) => (
                 <img key={index} src={image} alt={`Trip image ${index + 1}`} />
               ))
