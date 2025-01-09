@@ -152,3 +152,60 @@ body>#root {
     /* so the buttons dodnt behave flex filling all the container widht */
     width: 250px;
 }
+
+
+/*         Cards 3 Trips Cancelled Complete etc.*/
+/* Parent container for all trips */
+.allTripsDiv {
+    display: flex;
+    flex-direction: column; /* Stack child divs vertically */
+    gap: 20px; /* Space between trip categories */
+  }
+  
+  /* Individual trip category divs */
+  .allTripsDiv > div {
+    min-width: 700px;
+  
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for <ul> inside each category */
+  .allTripsDiv ul {
+    display: flex; /* Use flexbox for the list items */
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+    gap: 15px; /* Space between list items (trip cards) */
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  /* Styling for <li> inside the <ul> */
+  .allTripsDiv li {
+    flex: 1 1 calc(20% - 15px); /* Each card takes up half the row width */
+    max-width: calc(20% - 15px); /* Ensure consistent width for cards */
+    box-sizing: border-box;
+  }
+  
+  /* Optional: Add hover effect for trip cards */
+  .allTripsDiv li:hover {
+    transform: translateY(-5px);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Ensure consistent heading and paragraph spacing */
+  .allTripsDiv h4 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .allTripsDiv p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Edit from "../components/Edit";
+import '../TripDetailsPage.css';
 
 const TripDetailsPage = ({ trips, handleDelete }) => {
   const [tripsState, setTrips] = useState(trips);
