@@ -13,7 +13,7 @@ const Edit = ({ trip, handleUpdate }) => {
         duration: trip.duration,
         destinations: trip.destinations,
         description: trip.description,
-        // images: trip.images || [], // Ensure images is in the form data 
+        images: trip.images || [], // Ensure images is in the form data 
         startDate: trip.startDate,
         endDate: trip.endDate,
         tripStatus: trip.tripStatus || "", // Ensure tripStatus is in the form data
@@ -29,11 +29,11 @@ const Edit = ({ trip, handleUpdate }) => {
       [name]: value,
     }));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     handleUpdate(formData); // Call the parent handleUpdate with formData
   };
+  // old code 
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -48,6 +48,10 @@ const Edit = ({ trip, handleUpdate }) => {
       images: newImages, // Save the processed images in formData
     }));
   };
+
+//new code
+
+
 
   return (
     <div>
@@ -125,16 +129,17 @@ const Edit = ({ trip, handleUpdate }) => {
             <option value="cancelled">Cancelled</option>
           </select>
         </label>
-        {/* Uncomment and use this for image URLs */}
-        {/* <label>Trip Images:</label>
+
+        <label>Trip Images:</label>
+
         <textarea
-          required
-          rows="4"
-          cols="50"
-          value={inputText}
-          placeholder="Write here the URLs for the images of the trip, separating them with a comma (,) or new lines"
-          onChange={handleInputChange}
-        /> */}
+  required
+  rows="4"
+  cols="50"
+  value={formData.images ? formData.images.join("\n") : ""} //  newline character to display each URL on a new line
+  placeholder="Write here the URLs for the images of the trip, separating them with a comma (,) or new lines"
+  onChange={handleInputChange}
+/>
         <button type="submit">Save</button>
       </form>
     </div>
