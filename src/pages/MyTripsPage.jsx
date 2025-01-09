@@ -12,7 +12,6 @@ const MyTripsPage = ({ trips, handleDelete }) => {
 
     return (
         <>
-            <p>May be we want a serach bar here? </p>
             <h1>My trips page</h1>
             <div className="allTripsDiv">
                 <div className="plannedTripsDiv">
