@@ -118,17 +118,20 @@ const TripDetailsPage = ({ trips, handleDelete }) => {
       <section className="descriptionDiv">
         {handleDescription(trip.description)}
       </section>
-      <button type="button" onClick={() => handleDelete(trip.id)}>
-        Delete trip
-      </button>
+      <div className="modifyTripButtonsDiv">
+        <button type="button" onClick={() => handleDelete(trip.id)}>
+          Delete trip
+        </button>
 
-      {/* Show the Edit button only */}
-      {!isEditing && (
-        <button onClick={() => setIsEditing(true)}>Edit Trip</button>
-      )}
+        {/* Show the Edit button only */}
+        {!isEditing && (
+          <button onClick={() => setIsEditing(true)}>Edit Trip</button>
+        )}
 
-      {/* Show the Edit form only if isEditing is true */}
-      {isEditing && <Edit trip={trip} handleUpdate={handleUpdate} />}
+        {/* Show the Edit form only if isEditing is true */}
+        {isEditing && <Edit trip={trip} handleUpdate={handleUpdate} />}
+      </div>
+
     </div>
   );
 };

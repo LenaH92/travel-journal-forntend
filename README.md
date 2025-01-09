@@ -70,4 +70,4 @@ tripStatus: string (only available: "planned", "completed", "cancelled")
 
 ### Slides
 
-[Slides Link](www.your-slides-url-here.com)
+[Slides Link](https://docs.google.com/presentation/d/1DUpaD_fD476pzUPhJ41N39iLBAW1b7bj3W9GVMDT8Es/edit?usp=sharing)

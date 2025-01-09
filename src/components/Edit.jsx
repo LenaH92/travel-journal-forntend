@@ -49,14 +49,14 @@ const Edit = ({ trip, handleUpdate }) => {
     }));
   };
 
-//new code
+  //new code
 
 
 
   return (
     <div>
       <h2>Edit Trip</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <label>
           Title:
           <input
@@ -68,12 +68,14 @@ const Edit = ({ trip, handleUpdate }) => {
         </label>
         <label>
           Description:
-          <textarea
-            name="description"
-            value={formData.description || ""}
-            onChange={handleChange}
-          />
         </label>
+        <textarea
+          name="description"
+          rows={5}
+          value={formData.description || ""}
+          onChange={handleChange}
+        />
+
         <label>
           Destinations:
           <input
@@ -133,13 +135,13 @@ const Edit = ({ trip, handleUpdate }) => {
         <label>Trip Images:</label>
 
         <textarea
-  required
-  rows="4"
-  cols="50"
-  value={formData.images ? formData.images.join("\n") : ""} //  newline character to display each URL on a new line
-  placeholder="Write here the URLs for the images of the trip, separating them with a comma (,) or new lines"
-  onChange={handleInputChange}
-/>
+          required
+          rows="4"
+          cols="50"
+          value={formData.images ? formData.images.join("\n") : ""} //  newline character to display each URL on a new line
+          placeholder="Write here the URLs for the images of the trip, separating them with a comma (,) or new lines"
+          onChange={handleInputChange}
+        />
         <button type="submit">Save</button>
       </form>
     </div>

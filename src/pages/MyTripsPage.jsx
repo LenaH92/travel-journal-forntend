@@ -12,7 +12,7 @@ const MyTripsPage = ({ trips, handleDelete }) => {
 
     return (
         <>
-            <h1>My trips page</h1>
+            <h1>My trips!</h1>
             <div className="allTripsDiv">
                 <div className="plannedTripsDiv">
                     <h4>Planned trips!</h4>

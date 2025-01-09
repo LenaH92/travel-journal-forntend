@@ -4,8 +4,6 @@ import pic2 from '/public/lena_pfp.png';
 const AboutUsPage = () => {
   return (
     <>
-      <h1>This is the about us page</h1>
-      
       <section className="ourStory">
         <h2>Our Story</h2>
         <p>Hello and welcome!</p>
@@ -25,7 +23,7 @@ const AboutUsPage = () => {
         </p>
         <div className="justUs">
           <div id="albertsDiv">
-          <img src={pic} alt="Albert photo" />
+            <img src={pic} alt="Albert photo" />
             <h3>Albert Salgiriev's story</h3>
             <p>
               Albert Salgiriev is a passionate learner and a lover of all things
@@ -55,7 +53,7 @@ const AboutUsPage = () => {
             </p>
           </div>
           <div id="lenasDiv">
-          <img src={pic2} alt="Lena photo" />
+            <img src={pic2} alt="Lena photo" />
             <h3>Lena Cortes' story</h3>
             <p>
               Lena Cortés, born and raised in Valencia, Spain, has always had a

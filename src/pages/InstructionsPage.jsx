@@ -42,10 +42,7 @@ const InstructionsPage = () => {
                 </li>
             </ul>
             <hr />
-            <h2>💬 Need Help?</h2>
-            <p>
-                Got questions or suggestions? Let us know—we’d love to hear from you and make this app even better for you!
-            </p>
+
 
             <p>
                 So, what are you waiting for? Click around, explore, and start your next journey. Happy travels! 🌟
