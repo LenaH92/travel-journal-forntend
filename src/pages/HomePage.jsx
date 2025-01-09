@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-    return (<>
+    return (<div className="homePageDiv">
         <h1>Welcome, User!</h1>
         <p>What do you want to do?</p>
         <div className="buttonsDiv">
@@ -14,7 +14,7 @@ const HomePage = () => {
         </div>
 
 
-    </>);
+    </div>);
 }
 
 export default HomePage;

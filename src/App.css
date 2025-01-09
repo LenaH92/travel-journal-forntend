@@ -22,6 +22,10 @@ li {
     padding: 8px 0 10px 0;
 }
 
+p {
+    text-indent: 1.5em;
+}
+
 h1,
 h2,
 h3,
@@ -134,7 +138,17 @@ body>#root {
 }
 
 /* Hompage styling */
+.homePageDiv {
+    max-width: 500px;
+}
+
 .buttonsDiv {
     display: flex;
     flex-direction: column;
+}
+
+.buttonsDiv button {
+    align-self: center;
+    /* so the buttons dodnt behave flex filling all the container widht */
+    width: 250px;
 }
