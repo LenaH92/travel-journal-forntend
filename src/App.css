@@ -288,10 +288,7 @@ body>#root {
 
 /* Trip details styling */
 .modifyTripButtonsDiv {
-  display: flex;
-  justify-content: space-around;
   margin-top: 10px;
-
 }
 
 .modifyTripButtonsDiv button {
