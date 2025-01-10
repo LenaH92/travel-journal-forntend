@@ -15,7 +15,7 @@ const MyTripsPage = ({ trips, handleDelete }) => {
             <h1>My trips!</h1>
             <div className="allTripsDiv">
                 <div className="plannedTripsDiv">
-                    <h4>Planned trips!</h4>
+                    <h3>Planned trips!</h3>
                     <p>Better get them done before it's too late!</p>
                     <ul className="plannedTripsCardsDiv">
                         {/* listing the trips as li */}
@@ -28,7 +28,7 @@ const MyTripsPage = ({ trips, handleDelete }) => {
                     </ul>
                 </div>
                 <div className="compleatedTripsDiv">
-                    <h4>Compleated trips!</h4>
+                    <h3>Compleated trips!</h3>
                     <p>Check your memories here!</p>
                     <ul className="compleatedTripsCardsDiv">
                         {/* listing the trips as li */}
@@ -41,7 +41,7 @@ const MyTripsPage = ({ trips, handleDelete }) => {
                     </ul>
                 </div>
                 <div className="cancelledTripsDiv">
-                    <h4>Cancelled trips!</h4>
+                    <h3>Cancelled trips!</h3>
                     <p>Let's keep them as an idea for the future</p>
                     <ul className="cancelledTripsCardsDiv">
                         {/* listing the trips as li */}
