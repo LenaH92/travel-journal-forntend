@@ -40,7 +40,26 @@ button {
   box-shadow: 0 0 5px 3px #93b0c3;
   padding: 3px;
   margin: 5px;
+  border: solid 1px #523b3a;
+  border-radius: 5px;
 }
+
+/* links colors */
+
+a {
+  text-decoration: none;
+  color: #523b3a;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  /* sligth animation for the transition */
+  text-shadow: 0 0 15px #dff2ff;
+}
+
+a:active {
+  color: #a36c68;
+  /* Cambia de color mientras se hace clic */
+}
+
 
 /*trips-->japan--> shows all images in a grid, previosly the orginal resolution was loaded, to big*/
 /* .imagesArrayDiv {
@@ -113,6 +132,15 @@ button {
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+}
+
+.navbar h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 15px #ce908c;
+}
+
+.navbar h4 {
+  text-shadow: 0 0 15px #dff2ff;
 }
 
 /* sidebar styling */
@@ -249,13 +277,13 @@ body>#root {
   /* Use flexbox for the list items */
   flex-wrap: wrap;
   /* Allow items to wrap if needed */
-  gap: 15px;
+  gap: 25px;
   /* Space between list items (trip cards) */
   list-style: none;
   /* Remove default list styling */
   padding: 0;
   /* Remove default padding */
-  margin: 0;
+  margin: 10px;
   /* Remove default margin */
 }
 
@@ -300,7 +328,7 @@ body>#root {
 
 .image-container {
   width: 100%;
-  /* Ancho completo del contenedor */
+  /* Full widdth of the container */
   padding-top: 100%;
   position: relative;
   /* so then the position of the img can be absolute */

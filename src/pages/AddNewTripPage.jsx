@@ -99,7 +99,7 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
             <label>
                 Trip duration:
                 <input
-                    required
+
                     type="text"
                     value={duration}
                     placeholder="Write here the duration of the trip in days"
@@ -109,7 +109,7 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
             <label>
                 Trip Start Date:
                 <input
-                    required
+
                     type="date"
                     value={startDate}
                     onChange={(event) => setStartDate(event.target.value)} />
@@ -118,7 +118,7 @@ const AddNewTripPage = ({ trips, setTrips, fetchTrips }) => {
             <label>
                 Trip End Date:
                 <input
-                    required
+
                     type="date"
                     value={endDate}
                     onChange={(event) => setEndDate(event.target.value)} />
